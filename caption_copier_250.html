@@ -1,304 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Caption Copier</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 40px;
-    background: #f9fafb;
-  }
-  #message {
-    font-size: 1.2em;
-    margin-top: 20px;
-  }
-</style>
-<script>
-// ✨ Place your captions here.
-// If a slot is empty, it will show "Caption not found".
-const captions = [
-  "Hi Threads",
-  "Taylor Swift",
-  "Caption 3 goes here",
-  "Caption 4 goes here",
-  "Caption 5 goes here",
-  "Caption 6 goes here",
-  "Caption 7 goes here",
-  "Caption 8 goes here",
-  "Caption 9 goes here",
-  "Caption 10 goes here",
-  "Caption 11 goes here",
-  "Caption 12 goes here",
-  "Caption 13 goes here",
-  "Caption 14 goes here",
-  "Caption 15 goes here",
-  "Caption 16 goes here",
-  "Caption 17 goes here",
-  "Caption 18 goes here",
-  "Caption 19 goes here",
-  "Caption 20 goes here",
-  "Caption 21 goes here",
-  "Caption 22 goes here",
-  "Caption 23 goes here",
-  "Caption 24 goes here",
-  "Caption 25 goes here",
-  "Caption 26 goes here",
-  "Caption 27 goes here",
-  "Caption 28 goes here",
-  "Caption 29 goes here",
-  "Caption 30 goes here",
-  "Caption 31 goes here",
-  "Caption 32 goes here",
-  "Caption 33 goes here",
-  "Caption 34 goes here",
-  "Caption 35 goes here",
-  "Caption 36 goes here",
-  "Caption 37 goes here",
-  "Caption 38 goes here",
-  "Caption 39 goes here",
-  "Caption 40 goes here",
-  "Caption 41 goes here",
-  "Caption 42 goes here",
-  "Caption 43 goes here",
-  "Caption 44 goes here",
-  "Caption 45 goes here",
-  "Caption 46 goes here",
-  "Caption 47 goes here",
-  "Caption 48 goes here",
-  "Caption 49 goes here",
-  "Caption 50 goes here",
-  "Caption 51 goes here",
-  "Caption 52 goes here",
-  "Caption 53 goes here",
-  "Caption 54 goes here",
-  "Caption 55 goes here",
-  "Caption 56 goes here",
-  "Caption 57 goes here",
-  "Caption 58 goes here",
-  "Caption 59 goes here",
-  "Caption 60 goes here",
-  "Caption 61 goes here",
-  "Caption 62 goes here",
-  "Caption 63 goes here",
-  "Caption 64 goes here",
-  "Caption 65 goes here",
-  "Caption 66 goes here",
-  "Caption 67 goes here",
-  "Caption 68 goes here",
-  "Caption 69 goes here",
-  "Caption 70 goes here",
-  "Caption 71 goes here",
-  "Caption 72 goes here",
-  "Caption 73 goes here",
-  "Caption 74 goes here",
-  "Caption 75 goes here",
-  "Caption 76 goes here",
-  "Caption 77 goes here",
-  "Caption 78 goes here",
-  "Caption 79 goes here",
-  "Caption 80 goes here",
-  "Caption 81 goes here",
-  "Caption 82 goes here",
-  "Caption 83 goes here",
-  "Caption 84 goes here",
-  "Caption 85 goes here",
-  "Caption 86 goes here",
-  "Caption 87 goes here",
-  "Caption 88 goes here",
-  "Caption 89 goes here",
-  "Caption 90 goes here",
-  "Caption 91 goes here",
-  "Caption 92 goes here",
-  "Caption 93 goes here",
-  "Caption 94 goes here",
-  "Caption 95 goes here",
-  "Caption 96 goes here",
-  "Caption 97 goes here",
-  "Caption 98 goes here",
-  "Caption 99 goes here",
-  "Caption 100 goes here",
-  "Caption 101 goes here",
-  "Caption 102 goes here",
-  "Caption 103 goes here",
-  "Caption 104 goes here",
-  "Caption 105 goes here",
-  "Caption 106 goes here",
-  "Caption 107 goes here",
-  "Caption 108 goes here",
-  "Caption 109 goes here",
-  "Caption 110 goes here",
-  "Caption 111 goes here",
-  "Caption 112 goes here",
-  "Caption 113 goes here",
-  "Caption 114 goes here",
-  "Caption 115 goes here",
-  "Caption 116 goes here",
-  "Caption 117 goes here",
-  "Caption 118 goes here",
-  "Caption 119 goes here",
-  "Caption 120 goes here",
-  "Caption 121 goes here",
-  "Caption 122 goes here",
-  "Caption 123 goes here",
-  "Caption 124 goes here",
-  "Caption 125 goes here",
-  "Caption 126 goes here",
-  "Caption 127 goes here",
-  "Caption 128 goes here",
-  "Caption 129 goes here",
-  "Caption 130 goes here",
-  "Caption 131 goes here",
-  "Caption 132 goes here",
-  "Caption 133 goes here",
-  "Caption 134 goes here",
-  "Caption 135 goes here",
-  "Caption 136 goes here",
-  "Caption 137 goes here",
-  "Caption 138 goes here",
-  "Caption 139 goes here",
-  "Caption 140 goes here",
-  "Caption 141 goes here",
-  "Caption 142 goes here",
-  "Caption 143 goes here",
-  "Caption 144 goes here",
-  "Caption 145 goes here",
-  "Caption 146 goes here",
-  "Caption 147 goes here",
-  "Caption 148 goes here",
-  "Caption 149 goes here",
-  "Caption 150 goes here",
-  "Caption 151 goes here",
-  "Caption 152 goes here",
-  "Caption 153 goes here",
-  "Caption 154 goes here",
-  "Caption 155 goes here",
-  "Caption 156 goes here",
-  "Caption 157 goes here",
-  "Caption 158 goes here",
-  "Caption 159 goes here",
-  "Caption 160 goes here",
-  "Caption 161 goes here",
-  "Caption 162 goes here",
-  "Caption 163 goes here",
-  "Caption 164 goes here",
-  "Caption 165 goes here",
-  "Caption 166 goes here",
-  "Caption 167 goes here",
-  "Caption 168 goes here",
-  "Caption 169 goes here",
-  "Caption 170 goes here",
-  "Caption 171 goes here",
-  "Caption 172 goes here",
-  "Caption 173 goes here",
-  "Caption 174 goes here",
-  "Caption 175 goes here",
-  "Caption 176 goes here",
-  "Caption 177 goes here",
-  "Caption 178 goes here",
-  "Caption 179 goes here",
-  "Caption 180 goes here",
-  "Caption 181 goes here",
-  "Caption 182 goes here",
-  "Caption 183 goes here",
-  "Caption 184 goes here",
-  "Caption 185 goes here",
-  "Caption 186 goes here",
-  "Caption 187 goes here",
-  "Caption 188 goes here",
-  "Caption 189 goes here",
-  "Caption 190 goes here",
-  "Caption 191 goes here",
-  "Caption 192 goes here",
-  "Caption 193 goes here",
-  "Caption 194 goes here",
-  "Caption 195 goes here",
-  "Caption 196 goes here",
-  "Caption 197 goes here",
-  "Caption 198 goes here",
-  "Caption 199 goes here",
-  "Caption 200 goes here",
-  "Caption 201 goes here",
-  "Caption 202 goes here",
-  "Caption 203 goes here",
-  "Caption 204 goes here",
-  "Caption 205 goes here",
-  "Caption 206 goes here",
-  "Caption 207 goes here",
-  "Caption 208 goes here",
-  "Caption 209 goes here",
-  "Caption 210 goes here",
-  "Caption 211 goes here",
-  "Caption 212 goes here",
-  "Caption 213 goes here",
-  "Caption 214 goes here",
-  "Caption 215 goes here",
-  "Caption 216 goes here",
-  "Caption 217 goes here",
-  "Caption 218 goes here",
-  "Caption 219 goes here",
-  "Caption 220 goes here",
-  "Caption 221 goes here",
-  "Caption 222 goes here",
-  "Caption 223 goes here",
-  "Caption 224 goes here",
-  "Caption 225 goes here",
-  "Caption 226 goes here",
-  "Caption 227 goes here",
-  "Caption 228 goes here",
-  "Caption 229 goes here",
-  "Caption 230 goes here",
-  "Caption 231 goes here",
-  "Caption 232 goes here",
-  "Caption 233 goes here",
-  "Caption 234 goes here",
-  "Caption 235 goes here",
-  "Caption 236 goes here",
-  "Caption 237 goes here",
-  "Caption 238 goes here",
-  "Caption 239 goes here",
-  "Caption 240 goes here",
-  "Caption 241 goes here",
-  "Caption 242 goes here",
-  "Caption 243 goes here",
-  "Caption 244 goes here",
-  "Caption 245 goes here",
-  "Caption 246 goes here",
-  "Caption 247 goes here",
-  "Caption 248 goes here",
-  "Caption 249 goes here",
-  "Caption 250 goes here",
-];
-
-// Ensure array has exactly 250 slots
-while (captions.length < 250) {
-  captions.push("");
-}
-
-window.onload = async () => {
-  const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get("id")) || 1;
-  const text = captions[id - 1];
-
-  if (text && text.trim() !== "") {
-    try {
-      await navigator.clipboard.writeText(text);
-      document.getElementById("message").textContent = `✅ Caption ${id} copied to clipboard.`;
-      // Optional: close after 2 seconds
-      setTimeout(() => { window.close(); }, 2000);
-    } catch (err) {
-      document.getElementById("message").textContent = "❌ Failed to copy. Please allow clipboard access.";
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caption Copier</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
     }
-  } else {
-    document.getElementById("message").textContent = `⚠️ Caption ${id} not found.`;
-  }
-};
-</script>
+    #message {
+      font-size: 1.4rem;
+      margin: 20px;
+    }
+    .caption-box {
+      max-width: 90%;
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      word-wrap: break-word;
+    }
+  </style>
 </head>
 <body>
-  <h1>📋 Caption Copier</h1>
-  <div id="message">Loading...</div>
+  <div id="message">Fetching caption...</div>
+  <div class="caption-box" id="captionText"></div>
+
+  <script>
+    window.onload = async () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get("id")) || 1;
+      const apiURL = "https://script.google.com/macros/s/AKfycbyr_aOW8wEfGjAeriwARF5zRo-708bk6zw4_xKToixQrGG8ZZ6FL5TOBT1lZeyz2ONoeg/exec";
+
+      try {
+        const response = await fetch(apiURL + "?id=" + id);
+        const text = await response.text();
+
+        const captionBox = document.getElementById("captionText");
+        captionBox.textContent = text;
+
+        if (text && text.trim() !== "") {
+          await navigator.clipboard.writeText(text);
+          document.getElementById("message").textContent = `✅ Caption ${id} copied to clipboard`;
+        } else {
+          document.getElementById("message").textContent = `⚠️ Caption ${id} not found`;
+        }
+      } catch (err) {
+        document.getElementById("message").textContent = "❌ Failed to fetch caption. Check Google Sheet connection.";
+      }
+    };
+  </script>
 </body>
 </html>
